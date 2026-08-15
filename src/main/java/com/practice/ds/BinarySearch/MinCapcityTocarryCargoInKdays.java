@@ -1,6 +1,11 @@
 package com.practice.ds.BinarySearch;
 
 public class MinCapcityTocarryCargoInKdays {
+    /*fjdjdk
+    fdjdjdj
+    djdkkdkdkdk
+
+            */
 
     static int minCapcityTocarryCargoInKdays(int[] weights,int k){
         if (weights == null || weights.length == 0 || k < 1) {
