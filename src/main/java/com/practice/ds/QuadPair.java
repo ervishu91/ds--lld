@@ -1,4 +1,4 @@
-package com.practice.interview;
+package com.practice.ds;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,9 +27,9 @@ public class QuadPair {
                         left++;
                         right--;
 
-                        while(arr[left]==c)
+                        while(left<right && arr[left]==c)
                              left++;
-                        while(arr[right]==c)
+                        while(left<right && arr[right]==c)
                             right--;
 
                     }
@@ -40,11 +40,11 @@ public class QuadPair {
                         right--;
                     }
                 }
-                while(arr[++j]==b);
+                while(j<n-1 && arr[++j]==b);
                 j--;
 
             }
-            while(arr[++i]==a);
+            while(i<n-3 && arr[++i]==a);
             i--;
 
         }

@@ -29,8 +29,35 @@ public class MergeInterval {
     }
 
     public static  void main(String... args){
-        int[][] interval = {{1,3},{2,6},{8,10},{9,12}};
-        System.out.println("mergedInterval for :"+interval +"::"+mergeInterval(interval));
+        int[][] interval = {{1, 3}, {2, 6}, {8, 10}, {9, 12}};
 
+        int[][] result = newMergeInterval(interval);
+
+        System.out.println(
+                Arrays.stream(result)
+                        .map(Arrays::toString)
+                        .toList()
+        );
+    }
+
+    private static int[][] newMergeInterval(int[][] intervals) {
+        int n = intervals.length;
+        if(n<=1)
+            return intervals;
+        List<int[]> ans = new ArrayList<>();
+        Arrays.sort(intervals,Comparator.comparingInt(a->a[0]));
+        int[] prev = intervals[0];
+        for(int i =1;i<n;i++){
+            int[] next = intervals[i];
+            if(next[0]<=prev[1]){
+                //prev[0] = Math.min(prev[0],next[0]);
+                prev[1] = Math.max(prev[1],next[1]);
+            }else{
+                ans.add(prev);
+                prev=next;
+            }
+        }
+        ans.add(prev);
+        return ans.toArray( new int[ans.size()][2]);
     }
 }

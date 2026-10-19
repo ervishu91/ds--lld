@@ -1,4 +1,4 @@
-package com.practice.interview;
+package com.practice.ds;
 
 public class Kokobanana {
     static int findMinSpeedForKHours(int[] piles, int h ){
